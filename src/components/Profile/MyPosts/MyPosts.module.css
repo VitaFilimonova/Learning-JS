@@ -1,0 +1,17 @@
+.content{
+    grid-area: cea;
+    background-color: chartreuse;
+
+}
+.content img {
+    width: 500px;
+    height: 300px;
+}
+.item {
+    color: darkblue;
+}
+.button {
+    height: 30px;
+    color: red;
+    font-family: "MV Boli";
+}
