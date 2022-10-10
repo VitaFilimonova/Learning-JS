@@ -1,0 +1,32 @@
+.dialogs{
+    display: grid;
+    /*height: 600px;*/
+    background-color: chartreuse;
+    grid-template-columns:4fr 10fr ;
+    /*grid-template-rows:200px ;*/
+}
+
+.diItem {
+    padding: 20px;
+}
+.diMesssages{
+    padding: 20px;
+}
+.active{
+    color: blue;
+    text-decoration: none;
+}
+.item{
+    color: brown;
+    text-decoration: none;
+}
+.dialogs img {
+    height: 20px;
+    width: 20px;
+    border-radius: 15px;
+}
+.button {
+    height: 30px;
+    color: red;
+    font-family: "Comic Sans MS";
+}

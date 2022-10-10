@@ -1,15 +1,17 @@
 .content{
     grid-area: cea;
     background-color: chartreuse;
+margin-top: 20px;
+    margin-left: 10px;
 
 }
 .content img {
     width: 500px;
     height: 300px;
 }
-.item img {
-    height: 50px;
-    width: 50px;
+.itemnik img {
+    height: 30px;
+    width: 30px;
     border-radius: 30px;
 }
 .button {
