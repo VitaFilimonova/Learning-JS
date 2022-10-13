@@ -1,37 +1,36 @@
 import React from "react";
 import s from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
-import {createRef} from "react";
-
-const DialogsOne = (pro) => {
-    return  (
-    <div className={s.dialogs}>
-        <img src='https://s1.1zoom.ru/big3/241/431666-Kysb.jpg'/>
-     <NavLink to= {`dialogs/${pro.idom}`} className = { ({ isActive }) =>(isActive ? s.active : s.item )}> {pro.name} </NavLink>
-
-        </div>
-
-    )
-}
-
-const Message = (props) => {
-    return <div className={s.dialogs}> {props.message}</div>
-
-}
+import sas from "../Profile/MyPosts/MyPosts.module.css";
 
 const Dialogs = (props) => {
+    const Message = (propso) => {
+        return <div className={s.dialogs}> {propso.message}</div>
+    }
 
-    let dialogsElements = props.Data
-        .map(didata => <DialogsOne name={didata.name} idom={didata.id}/>)
+    const DialogsOne = (pro) => {
+        return (
+            <div className={s.dialogs}>
+                <img src='https://s1.1zoom.ru/big3/241/431666-Kysb.jpg'/>
+                <NavLink to={`${pro.idom}`}
+                         className={({isActive}) => (isActive ? s.active : s.item)}> {pro.name} </NavLink>
+            </div>
+        )
+    }
 
-    let messagesElements = props.messagesData
-        .map(mesdata => <Message message={mesdata.message} id={mesdata.id}/>)
+    let dialogsElements = props.DataDi.map(DataDi => <DialogsOne name={DataDi.name} idom={DataDi.id}/>)
 
-    let newMessageElement = React.createRef()
+    let messagesElements = props.DataMe.map(DataMe => <Message message={DataMe.message} id={DataMe.id}/>)
 
-    let addMessage = () => {
-        let text = newMessageElement.current.value
-        alert(text)
+    // let newMessageElement = React.createRef()
+
+    let onSendMessageClick = () => {
+        props.AddMessage()
+    }
+
+    let onMessageChange = (e) => {
+        let mesText = e.target.value
+        props.UpdateNewMessageText(mesText)
     }
 
     return (
@@ -43,18 +42,13 @@ const Dialogs = (props) => {
                 {messagesElements}
             </div>
             <div>
-                <textarea ref={newMessageElement }></textarea>
+                <textarea onChange={onMessageChange} value={props.Data.newMessageData}></textarea>
             </div>
             <div>
-                <button onClick={addMessage} className={s.button}>Add message</button>
+                <button onClick={onSendMessageClick} className={s.button}>Add message</button>
             </div>
-
-
         </div>
     )
-
-
-
 }
 
 export default Dialogs
