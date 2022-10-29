@@ -1,13 +1,15 @@
 import React from "react";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
+import MyPostsContainer from "./MyPosts/MyPostsContainer.jsx";
 // import s from "./ProfileInfo/ProfileInfo.module.css";
 // import sas from './Profile.module.css'
 
 
 const Profile = (props) => {
+
     return   <div>
-        <ProfileInfo />
+
+        <ProfileInfo profile = {props.profile}/>
     <div>
      <MyPostsContainer store = {props.store}/>
 

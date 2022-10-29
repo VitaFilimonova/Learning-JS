@@ -5,21 +5,24 @@ import s from './Nav.module.css'
 const Nav = () => {
     return <nav className={classes.naf}>
         <div className={classes.item}>
-            <NavLink to='/profile' className = { ({ isActive }) =>(isActive ? s.active : s.item )}>Profile</NavLink>
-    </div>
-    <div className={classes.item}>
-        <NavLink to='/dialogs' className = { navData => navData.isActive ? s.active : s.item }>Messages </NavLink>
-</div>
-    <div className={classes.item}>
-        <a>News</a>
-    </div>
-    {/*<div className={`${classes.item} ${classes.active}`}>*/}
+            <NavLink to='/profile' className={({isActive}) => (isActive ? s.active : s.item)}>Profile</NavLink>
+        </div>
         <div className={classes.item}>
-        <a>Music</a>
-    </div>
-    <div className={classes.item}>
-        <a>Settings</a>
-    </div>
+            <NavLink to='/dialogs' className={navData => navData.isActive ? s.active : s.item}>Messages </NavLink>
+        </div>
+        <div className={classes.item}>
+            <NavLink to='/users' className={navData => navData.isActive ? s.active : s.item}>Users </NavLink>
+        </div>
+        <div className={classes.item}>
+            <a>News</a>
+        </div>
+        {/*<div className={`${classes.item} ${classes.active}`}>*/}
+        <div className={classes.item}>
+            <a>Music</a>
+        </div>
+        <div className={classes.item}>
+            <a>Settings</a>
+        </div>
         <div className={classes.friends}>
             <a> Friends</a>
             <div className={classes.naf}>

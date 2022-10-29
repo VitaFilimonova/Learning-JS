@@ -22,19 +22,17 @@ let initialState = {
 
 let dialogsReducer = ( state = initialState, action) => {
 switch (action.type) {
-    case ADD_MESSAGE:{
-        let copyState = {...state}
-        copyState.MessagesData = [...state.MessagesData]
-        copyState.DialogsData = [...state.DialogsData]
-        copyState.MessagesData.push({id: 1,message:state.newMessageData})
-        copyState.newMessageData = ''
-        return copyState}
+    case ADD_MESSAGE:
+    return {...state,
+        MessagesData: [...state.MessagesData,{id: 1,message:state.newMessageData}],
+        // copyState.DialogsData = [...state.DialogsData]
+       newMessageData : ''
+        }
 
-    case UPDATE_NEW_MESSAGE_TEXT:{
-        let copyState = {...state}
-        copyState.newMessageData = action.mesText
-        return copyState
-    }
+    case UPDATE_NEW_MESSAGE_TEXT:
+    return {
+        ...state,
+        newMessageData :action.mesText}
     default:
         return state
     }

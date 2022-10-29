@@ -1,5 +1,5 @@
-import {UpdateNewPostTextCreators,AddPostCreators} from "../../Redux/Profile_Reducer";
-import MyPosts from "./MyPosts";
+import {UpdateNewPostTextCreators,AddPostCreators} from "../../Redux/Profile_Reducer.js";
+import MyPosts from "./MyPosts.jsx";
 import {connect} from "react-redux";
 import {useDispatch} from "react-redux";
 
@@ -27,7 +27,7 @@ let mapDispatchToProps = (dispatch) => (
 
 let mapStateToProps = (state) => {
     return{
-        // newPostData: state.ProfilePage.newPostData,
+        newPostData: state.ProfilePage.newPostData,
         post: state.ProfilePage
         // posts: state.ProfilePage.newPostData
     }

@@ -6,7 +6,7 @@ const MyPostNew = (pro) => {
 
     return <div className={sas.content}>
             <div className={sas.itemnik}>
-        <img src = 'https://cdn.fishki.net/upload/post/201603/23/1894215/norway-nature-scenery-lake-mountains-flowers-sunrise_1600x900.jpg'/>
+        <img src = 'https://kartinkin.net/uploads/posts/2022-02/thumbs/1645232023_2-kartinkin-net-p-krasivie-kartinki-priroda-leto-2.jpg'/>
             </div>
 
         {pro.message}

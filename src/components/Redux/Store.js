@@ -7,8 +7,8 @@
 
 // const ADD_MESSAGE = 'Add message'
 // const UPDATE_NEW_MESSAGE_TEXT = 'updateNewMesText'
-import profileReducer from "./Profile_Reducer";
-import dialogsReducer from "./Dialogs_Reducer";
+import profileReducer from "./Profile_Reducer.js";
+import dialogsReducer from "./Dialogs_Reducer.js";
 let store = {
   _state: {
     DialogsPage : {

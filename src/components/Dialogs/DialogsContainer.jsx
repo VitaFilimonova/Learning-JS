@@ -1,6 +1,6 @@
 import React from "react";
-import {AddMessageCreators,UpdateNewMessageTextCreators} from "../Redux/Dialogs_Reducer";
-import Dialogs from "./Dialogs";
+import {AddMessageCreators,UpdateNewMessageTextCreators} from "../Redux/Dialogs_Reducer.js";
+import Dialogs from "./Dialogs.jsx";
 import {connect} from "react-redux";
 
 let mapDispatchToProps = (dispatch) => ({

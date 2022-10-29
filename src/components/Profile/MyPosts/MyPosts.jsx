@@ -1,10 +1,10 @@
 import React from "react";
 import sas from './MyPosts.module.css'
-import MyPostNew from "../Post one/MyPostNew";
+import MyPostNew from "../Post one/MyPostNew.jsx";
 
 const MyPosts = (props) => {
 
-    let postElements = props.post.PostData.map( post =>  <MyPostNew message ={post.message} info={post.info}/> )
+    let postElements = props.post.PostData.map( post =>  <MyPostNew message ={post.message} info={post.info} key={post.id}/> )
 
     let newPostElement = React.createRef()
 
@@ -22,7 +22,7 @@ const MyPosts = (props) => {
     <div className={sas.item}>
         <h3> My post </h3>
         <div>
-            <textarea ref={newPostElement} onChange={onPostChange} value={props.post.newPostData} ></textarea>
+            <textarea ref={newPostElement} onChange={onPostChange} value={props.newPostData} ></textarea>
         </div>
         <div>
             <button onClick={adyPosts} className={sas.button}>Add post</button>

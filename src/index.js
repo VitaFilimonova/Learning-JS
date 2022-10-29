@@ -1,32 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './App.js';
 // import state from "./components/Redux/State";
 import {BrowserRouter} from "react-router-dom";
 // import {subscribe} from "./components/Redux/State";
 // import {updateNewPText} from "./components/Redux/State";
 // import {adPost} from "./components/Redux/State";
-import store from "./components/Redux/Redux_Store";
+import store from "./components/Redux/Redux_Store.js";
 import {Provider} from "react-redux";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
+root.render(
+    // <React.StrictMode>
 
-    root.render(
-        <React.StrictMode>
+    <BrowserRouter>
+        <Provider store={store}>
+            <App/>
 
-            <BrowserRouter>
-                <Provider store={store}>
-                <App/>
+            {/*// store = {store} state={state} dispatch={store.dispatch.bind(store)}*/}
 
-                    {/*// store = {store} state={state} dispatch={store.dispatch.bind(store)}*/}
+        </Provider>
+    </BrowserRouter>
 
-            </Provider>
-            </BrowserRouter>
-
-        </React.StrictMode>
-    );
+    // </React.StrictMode>
+);
 
 
 // store.subscribe (() => {
