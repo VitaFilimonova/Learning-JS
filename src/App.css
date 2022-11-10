@@ -1,21 +1,28 @@
 .app-wrapper {
   display: grid;
-width: 1200px;
-  /*height: 600px;*/
-  margin: auto;
+/*width: 1200px;*/
+/*  height: 1000px;*/
+
   grid-template-areas:
 'hea hea'
 'nea cea';
-  grid-template-rows: 60px 1fr;
-  grid-template-columns:2fr 10fr;
-  /*grid-gap: 10px;*/
+  grid-template-rows: 100px 1fr;
+  grid-template-columns:2fr 9fr;
+
   background-color: chartreuse;
+  /*position: relative;*/
+  /*right: 0;*/
+
+
 }
 
 
 
 .app-wrapper-dia {
   color: #cd14f1;
+
+  grid-area: cea;
+  margin-left: 20px;
 }
 
 

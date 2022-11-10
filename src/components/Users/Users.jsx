@@ -2,7 +2,6 @@ import React from "react";
 import s from './Users.module.css'
 import {NavLink} from "react-router-dom";
 
-
 let Users =(props)=> {
 
     let pages = []
@@ -29,9 +28,15 @@ let Users =(props)=> {
                     </NavLink>
 
                     </div>
-                <div > {use.followed === true
-                   ? <button className={s.button}   onClick={()=> props.DeleteUsers(use.id)}> Unfollow</button>
-                    : <button className={s.button} onClick={()=> props.AddUsers(use.id)}> Follow</button>}
+                <div> {use.followed === true
+                    ? <button  disabled= {props.isFollowingProcess.some(userId=>userId===use.id)}
+                               onClick={() => {props.unfollowThunk(use.id)
+                    }}>
+                        Unfollow</button>
+                    : <button disabled = {props.isFollowingProcess.some(userId=>userId===use.id)}
+                              onClick={()=> {props.followThunk(use.id)
+                    }}>
+                        Follow</button>}
                 </div>
             </span>
             <span>

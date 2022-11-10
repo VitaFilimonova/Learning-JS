@@ -5,7 +5,7 @@ import sas from './MyPostNew.module.css'
 const MyPostNew = (pro) => {
 
     return <div className={sas.content}>
-            <div className={sas.itemnik}>
+            <div className={sas.ite}>
         <img src = 'https://kartinkin.net/uploads/posts/2022-02/thumbs/1645232023_2-kartinkin-net-p-krasivie-kartinki-priroda-leto-2.jpg'/>
             </div>
 

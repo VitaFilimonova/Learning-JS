@@ -1,8 +1,15 @@
 .heafer{
     grid-area: hea;
     background-color: aquamarine;
+    /*size: auto;*/
 }
 .heafer img {
     width: 50px;
     height: 30px;
+}
+.login{
+   color: azure;
+    text-decoration: none;
+    float: right;
+    font-size: 30px;
 }

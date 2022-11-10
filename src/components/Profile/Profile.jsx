@@ -1,15 +1,14 @@
 import React from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 import MyPostsContainer from "./MyPosts/MyPostsContainer.jsx";
-// import s from "./ProfileInfo/ProfileInfo.module.css";
-// import sas from './Profile.module.css'
+import sas from './Profile.module.css'
 
 
 const Profile = (props) => {
 
-    return   <div>
+    return   <div className={sas.content}>
 
-        <ProfileInfo profile = {props.profile}/>
+        <ProfileInfo profile = {props.profile} status = {props.status} updateStatusThunk = {props.updateStatusThunk}/>
     <div>
      <MyPostsContainer store = {props.store}/>
 

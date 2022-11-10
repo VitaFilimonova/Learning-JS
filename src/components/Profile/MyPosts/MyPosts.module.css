@@ -7,8 +7,13 @@
     width: 500px;
     height: 300px;
 }
-.item {
+.it {
     color: darkblue;
+}
+.it img{
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
 }
 .button {
     height: 30px;

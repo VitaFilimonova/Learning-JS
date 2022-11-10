@@ -5,26 +5,38 @@ import s from './ProfileInfo.module.css'
 class StatusProfile extends React.Component {
     state = {
         editMode: false,
-        title: 'Yo'
+        status:this.props.status
     }
     activateEditMode = () => {
-        this.setState({editMode: true})
+        this.setState({editMode: true, status: this.props.status})
+
     }
     deactivateEditMode = () => {
         this.setState({editMode: false})
+        this.props.updateStatusThunk(this.state.status)
     }
+    upStatus = (e) => {
+        this.setState({status: e.currentTarget.value})
+    }
+// componentDidUpdate(prevProps, prevState, snapshot) {
+//         if (prevProps.status !== this.props.status){
+//             this.setState({
+//                 status: this.props.status
+//             })
+//         }
+// }
 
     render() {
         return (
             <div>
                 {!this.state.editMode &&
                     <div>
-                        <span onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</span>
+                        <span onDoubleClick={this.activateEditMode}>{this.props.status || '----'}</span>
                     </div>}
                 {this.state.editMode &&
                     <div>
-                        <input autoFocus={true} onBlur={this.deactivateEditMode.bind(this)}
-                               value={this.props.status}/>
+                        <input onChange={this.upStatus} autoFocus={true} onBlur={this.deactivateEditMode}
+                               value={this.state.status}/>
                     </div>}
             </div>
         )

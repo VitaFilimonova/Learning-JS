@@ -1,50 +1,44 @@
 import Users from "./Users";
 import {connect} from "react-redux";
 import {
-    AddUsers,
-    DeleteUsers,
+    AddUsers, unfollowThunk, getUsersThunk,
     SetCurrentPage,
-    SetTotalUsersCount,
-    SetUsers, ToggleIsFetching
+    SetTotalUsersCount, followThunk,
 } from "../Redux/Users_Reducer.js";
-import axios from "axios";
-import React from "react";
+import React, {useEffect} from "react";
 import loader from  "./../../Common/loader.gif"
 import s from "./Users.module.css"
 
-class UsersAPI extends React.Component{
+function UsersAPI (props){
+// class UsersAPI extends React.Component{
+useEffect(()=>{
+    // componentDidMount()  {
+        props.getUse(props.currentPage,props.usersOnPage)
 
-    componentDidMount()  {
-        this.props.ToggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.usersOnPage}`)
-            .then(AxiosResponse => {
-                this.props.ToggleIsFetching(false)
-                this.props.SetUsers(AxiosResponse.data.items)
-                this.props.SetTotalUsersCount(AxiosResponse.data.totalCount)
-            })
+    })
+
+    let changedPage = (page) => {
+        props.getUse(page,props.usersOnPage)
+        props.SetCurrentPage(page)
     }
 
-    changedPage = (page) => {
-        this.props.ToggleIsFetching(true)
-        this.props.SetCurrentPage(page)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.usersOnPage}`)
-            .then(AxiosResponse => {
-                this.props.ToggleIsFetching(false)
-                this.props.SetUsers(AxiosResponse.data.items)
-            })
-    }
-
-    render() {
+    {
         return <div>
-            {this.props.isFetching? <img src = {loader} className={s.loader}/> : null}
-            <Users totalCount={this.props.totalCount}
-                      usersOnPage={this.props.usersOnPage}
-                      currentPage={this.props.currentPage}
-                      changedPage={this.changedPage}
-                      DeleteUsers={this.props.DeleteUsers}
-                      AddUsers={this.props.AddUsers}
-                      us = {this.props.us}/>
-            </div>
+            {props.isFetching? <img src = {loader} className={s.loader}/> : null}
+            <Users totalCount={props.totalCount}
+                   usersOnPage={props.usersOnPage}
+                   currentPage={props.currentPage}
+                   changedPage={changedPage}
+                   DeleteUsers={props.DeleteUsers}
+                   AddUsers={props.AddUsers}
+                   us={props.us}
+                   ToggleIsFollowingProcess={props.ToggleIsFollowingProcess}
+                   isFollowingProcess={props.isFollowingProcess}
+                   unfollowThunk = {props.unfollowThunk}
+                   followThunk = {props.followThunk}
+
+            />
+        </div>
     }
 }
 
@@ -64,10 +58,12 @@ let mapStateToProps = (state) => {
         usersOnPage: state.UsersPage.usersOnPage,
         totalCount: state.UsersPage.totalCount,
         currentPage: state.UsersPage.currentPage,
-        isFetching:state.UsersPage.isFetching
+        isFetching:state.UsersPage.isFetching,
+        isFollowingProcess: state.UsersPage.isFollowingProcess
+
 
 }}
 
-export default connect (mapStateToProps,{AddUsers,DeleteUsers,SetUsers, SetCurrentPage, SetTotalUsersCount,ToggleIsFetching}) (UsersAPI)
+export default connect (mapStateToProps,{AddUsers, SetCurrentPage, SetTotalUsersCount,getUse:getUsersThunk,unfollowThunk,followThunk}) (UsersAPI)
 
 

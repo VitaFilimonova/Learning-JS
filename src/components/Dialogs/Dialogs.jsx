@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Dialogs.module.css"
-import {NavLink} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
 import sas from "../Profile/MyPosts/MyPosts.module.css";
 
 const Dialogs = (props) => {
@@ -18,9 +18,9 @@ const Dialogs = (props) => {
         )
     }
 
-    let dialogsElements = props.DataDi.map(DataDi => <DialogsOne name={DataDi.name} idom={DataDi.id}/>)
+    let dialogsElements = props.DataDi.map(DataDi => <DialogsOne name={DataDi.name} idom={DataDi.id} key = {DataDi.id}/>)
 
-    let messagesElements = props.DataMe.map(DataMe => <Message message={DataMe.message} id={DataMe.id}/>)
+    let messagesElements = props.DataMe.map(DataMe => <Message message={DataMe.message} id={DataMe.id} key = {DataMe.id}/>)
 
     // let newMessageElement = React.createRef()
 

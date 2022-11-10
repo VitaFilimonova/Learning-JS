@@ -5,13 +5,10 @@ margin-top: 20px;
     margin-left: 10px;
 
 }
-.content img {
-    width: 500px;
-    height: 300px;
-}
-.itemnik img {
-    height: 30px;
-    width: 30px;
+
+.ite img {
+    max-height : 30px;
+    max-width: 30px;
     border-radius: 30px;
 }
 .button {
